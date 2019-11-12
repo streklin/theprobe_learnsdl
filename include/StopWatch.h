@@ -1,6 +1,8 @@
 #ifndef STOPWATCH
 #define STOPWATCH
 
+#include <SDL.h>
+
 class StopWatch final {
 public:
     StopWatch();

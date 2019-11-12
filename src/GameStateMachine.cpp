@@ -11,24 +11,19 @@
 #include "WorldGeneratorState.h"
 
 GameStateMachine::GameStateMachine() {
+
+    currentState_ = nullptr;
     isGameExitTriggered_ = false;
 
     initializeManagerObjects();
-    initializeStates();
 
-    currentState_ = static_cast<GameState*>(titleScreenState_.get());
-    currentState_->enterState();
+    transition(titleScreenStateId);
 }
 
 void GameStateMachine::initializeManagerObjects() {
     graphicsManager_ = std::unique_ptr<GraphicsManager>(new GraphicsManager(1280, 960));
     audioManager_ = std::make_unique<AudioManager>(AudioManager());
     graphicsManager_->init();
-}
-
-void GameStateMachine::initializeStates() {
-    titleScreenState_ = std::make_unique<TitleScreenState>(TitleScreenState(graphicsManager_.get(), audioManager_.get(), titleScreenStateId));
-    worldGeneratorState_ = std::make_unique<WorldGeneratorState>(WorldGeneratorState(graphicsManager_.get(), audioManager_.get(), worldGeneratorStateId));
 }
 
 void GameStateMachine::run() {
@@ -64,14 +59,14 @@ void GameStateMachine::handleEvents() {
 }
 
 void GameStateMachine::transition(int const nextState) {
-    currentState_->exitState();
+    if (currentState_ != nullptr) currentState_->exitState();
     
     switch(nextState) {
         case titleScreenStateId: 
-            currentState_ = static_cast<GameState*>(titleScreenState_.get());
+            currentState_ = static_cast<GameState*>(new TitleScreenState(graphicsManager_.get(), audioManager_.get(), titleScreenStateId));
         break;
         case worldGeneratorStateId: 
-            currentState_ = static_cast<GameState*>(worldGeneratorState_.get());
+            currentState_ = static_cast<GameState*>(new WorldGeneratorState(graphicsManager_.get(), audioManager_.get(), worldGeneratorStateId));
         break;
     }
 

@@ -11,6 +11,7 @@
 #include "TitleScreenState.h"
 #include "WorldGeneratorState.h"
 #include "StopWatch.h"
+#include "WorldMap.h"
 
 class GameStateMachine final {
 public:
@@ -19,8 +20,6 @@ public:
 
 private:    
     void initializeManagerObjects();
-    void initializeStates();
-
     void handleEvents();
     void transition(const int nextState);
 
@@ -33,11 +32,7 @@ private:
     std::unique_ptr<GraphicsManager> graphicsManager_;
     std::unique_ptr<AudioManager> audioManager_;
 
-    // states
-    std::unique_ptr<TitleScreenState> titleScreenState_;
-    std::unique_ptr<WorldGeneratorState> worldGeneratorState_;
-
-
+    std::shared_ptr<WorldMap> worldMap_;
 
 };
 
