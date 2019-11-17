@@ -20,8 +20,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TheProbe.dir/src/WorldGeneratorState.cpp.o"
   "CMakeFiles/TheProbe.dir/src/WorldMap.cpp.o"
   "CMakeFiles/TheProbe.dir/src/main.cpp.o"
-  "TheProbe"
   "TheProbe.pdb"
+  "TheProbe"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -12,7 +12,7 @@ public:
     MapTileEmitter();
     MapTileEmitter(const int x, const int y, const int power);
     void emitTiles(WorldMap* worldMap, MapTile l1, MapTile l2, MapTile l3);
-    void randomWalkTiles(WorldMap* worldMap);
+    void randomWalkToWater(WorldMap* worldMap);
 
     const int x();
     const int y();

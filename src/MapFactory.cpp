@@ -13,6 +13,9 @@
 #define MINPOWER 16
 #define MAXPOWER 64
 
+#define MINFAULTLINES 5
+#define MAXFAULTLINES 10
+
 #define UP 0
 #define LEFT 1
 #define DOWN 2
@@ -96,6 +99,36 @@ void MapTileEmitter::emitTiles(WorldMap* world, MapTile l1, MapTile l2, MapTile 
 
 }
 
+void MapTileEmitter::randomWalkToWater(WorldMap* worldMap) {
+    // increase the height of the map tiles along the random walk
+    // to create hills and mountains
+    std::random_device dev;
+    std::mt19937 rng(dev());
+
+    std::uniform_int_distribution<int> directionDistribution(0, 4);
+
+    bool isAtWater = false;
+
+    int wx = x_;
+    int wy = y_;
+
+    while(!isAtWater) {
+        auto tileAt = worldMap->getTileAt(wx, wy);
+        if (tileAt == MapTile::mWater) {
+            isAtWater = true;
+            continue;
+        }
+
+        worldMap->setTileAt(wx, wy, MapTile::mMountain);
+
+        const int direction = directionDistribution(rng);
+        auto nextPosition = getNextMapLocation(worldMap, direction, wx, wy);
+        
+        wx = nextPosition.first;
+        wy = nextPosition.second;
+    }
+}
+
 const int MapTileEmitter::x() { return x_; }
 const int MapTileEmitter::y() { return y_; }
 const int MapTileEmitter::power() { return power_; }
@@ -116,8 +149,8 @@ MapTileEmitterFactory::MapTileEmitterFactory(const int width, const int height) 
     width_ = width;
     height_ = height;
 
-    widthDistribution_ = std::uniform_int_distribution<int>(0, MAP_WIDTH);
-    heightDistribution_ = std::uniform_int_distribution<int>(0, MAP_HEIGHT);
+    widthDistribution_ = std::uniform_int_distribution<int>(0, MAP_WIDTH - 1);
+    heightDistribution_ = std::uniform_int_distribution<int>(0, MAP_HEIGHT - 1);
     powerDistribution_ = std::uniform_int_distribution<int>(MINPOWER, MAXPOWER);
 }
 
@@ -160,12 +193,17 @@ void MapFactory::generateContinents(WorldMap* worldMap) {
 
 void MapFactory::generateFaultLines(WorldMap* worldMap) {
     // choose a potential fault line
+    std::random_device dev;
+    std::mt19937 rng(dev());
 
-    // do a random walk towards the water
+    std::uniform_int_distribution<int> distribution(MINFAULTLINES, MAXFAULTLINES);
+    const int numberOfFaultLines = distribution(rng);
 
-    // increase the height of the map tiles along the random walk
-    // to create hills and mountains
-    
+    for (int i = 0; i < numberOfFaultLines; i++) {
+        auto emitter = emitterFactory_.getEmitter();
+        emitter.randomWalkToWater(worldMap);
+    }
+
 }
 
 WorldMap* MapFactory::generateNewWorld(const int seed) {
