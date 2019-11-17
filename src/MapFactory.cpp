@@ -133,12 +133,7 @@ MapTileEmitter MapTileEmitterFactory::getEmitter() {
     return MapTileEmitter(x, y, power);
 }
 
-WorldMap* MapFactory::generateNewWorld(const int seed) {
-
-    WorldMap* worldMap = new WorldMap();
-
-    // multi-pass algorithm
-    // 1. Create Map Tile Emitters.
+void MapFactory::generateContinents(WorldMap* worldMap) {
     std::random_device dev;
     std::mt19937 rng(dev());
 
@@ -151,18 +146,34 @@ WorldMap* MapFactory::generateNewWorld(const int seed) {
         return this->emitterFactory_.getEmitter();
     });
 
-    // 2. Add a Mountain Tile to each Emitter Location.
     std::for_each(emitters.begin(), emitters.end(), [worldMap](MapTileEmitter &emitter){
         worldMap->setTileAt(emitter.x(), emitter.y(), MapTile::mVolcano);
     });
     
-    // 3. Run the emitters    
     std::uniform_int_distribution<int> emitterDistribution(0, numberOfEmitters);
     
     for(int i = 0; i < iterations_; i++) {
         const int index = emitterDistribution(rng);
         emitters[index].emitTiles(worldMap, MapTile::mDirt, MapTile::mHills, MapTile::mMountain);
     }
+}
+
+void MapFactory::generateFaultLines(WorldMap* worldMap) {
+    // choose a potential fault line
+
+    // do a random walk towards the water
+
+    // increase the height of the map tiles along the random walk
+    // to create hills and mountains
     
+}
+
+WorldMap* MapFactory::generateNewWorld(const int seed) {
+
+    WorldMap* worldMap = new WorldMap();
+
+    generateContinents(worldMap);
+    generateFaultLines(worldMap);
+
     return worldMap;
 }

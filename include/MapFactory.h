@@ -12,6 +12,7 @@ public:
     MapTileEmitter();
     MapTileEmitter(const int x, const int y, const int power);
     void emitTiles(WorldMap* worldMap, MapTile l1, MapTile l2, MapTile l3);
+    void randomWalkTiles(WorldMap* worldMap);
 
     const int x();
     const int y();
@@ -47,6 +48,9 @@ public:
     WorldMap* generateNewWorld(const int seed);
 
 private:
+    void generateContinents(WorldMap* worldMap);
+    void generateFaultLines(WorldMap* worldMap);
+
     int height_;
     int width_;
     int iterations_;

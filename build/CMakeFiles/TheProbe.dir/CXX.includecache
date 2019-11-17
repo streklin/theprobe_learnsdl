@@ -296,16 +296,6 @@ WorldGeneratorState.h
 MapLayer.h
 /home/gene/git/theprobe_learnsdl/src/MapLayer.h
 
-/home/gene/git/theprobe_learnsdl/src/WorldMap.cpp
-vector
--
-array
--
-iostream
--
-WorldMap.h
-/home/gene/git/theprobe_learnsdl/src/WorldMap.h
-
 /home/gene/git/theprobe_learnsdl/src/main.cpp
 GameStateMachine.h
 /home/gene/git/theprobe_learnsdl/src/GameStateMachine.h
