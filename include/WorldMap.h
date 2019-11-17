@@ -1,8 +1,8 @@
 #ifndef WORLDMAP
 #define WORLDMAP
 
-#define MAP_WIDTH 2048
-#define MAP_HEIGHT 2048
+#define MAP_WIDTH 75
+#define MAP_HEIGHT 55
 
 #include <vector>
 #include <array>
@@ -19,7 +19,8 @@ enum class MapTile {
     mRoad,
     mMountain,
     mMarsh,
-    mHills
+    mHills,
+    mVolcano
 };
 
 class WorldMap final {
@@ -27,9 +28,13 @@ public:
     WorldMap();
 
     MapTile getTileAt(const int x, const int y);
-    void updateTiles(const int cx, const int cy, const std::vector<std::vector<MapTile>> emittedTiles);
+    void setTileAt(const int x, const int y, const MapTile tile);
+    
+    void outputMapToConsole();
 
 private:
+    void outputTileToConsole(MapTile tile);
+
     std::array<std::array<MapTile, MAP_HEIGHT>, MAP_WIDTH> map_;
 };
 

@@ -312,6 +312,60 @@ src/IGraphicsLayer.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/IGraphicsLayer.cpp.s
 .PHONY : src/IGraphicsLayer.cpp.s
 
+src/MapFactory.o: src/MapFactory.cpp.o
+
+.PHONY : src/MapFactory.o
+
+# target to build an object file
+src/MapFactory.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapFactory.cpp.o
+.PHONY : src/MapFactory.cpp.o
+
+src/MapFactory.i: src/MapFactory.cpp.i
+
+.PHONY : src/MapFactory.i
+
+# target to preprocess a source file
+src/MapFactory.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapFactory.cpp.i
+.PHONY : src/MapFactory.cpp.i
+
+src/MapFactory.s: src/MapFactory.cpp.s
+
+.PHONY : src/MapFactory.s
+
+# target to generate assembly for a file
+src/MapFactory.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapFactory.cpp.s
+.PHONY : src/MapFactory.cpp.s
+
+src/MapLayer.o: src/MapLayer.cpp.o
+
+.PHONY : src/MapLayer.o
+
+# target to build an object file
+src/MapLayer.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapLayer.cpp.o
+.PHONY : src/MapLayer.cpp.o
+
+src/MapLayer.i: src/MapLayer.cpp.i
+
+.PHONY : src/MapLayer.i
+
+# target to preprocess a source file
+src/MapLayer.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapLayer.cpp.i
+.PHONY : src/MapLayer.cpp.i
+
+src/MapLayer.s: src/MapLayer.cpp.s
+
+.PHONY : src/MapLayer.s
+
+# target to generate assembly for a file
+src/MapLayer.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapLayer.cpp.s
+.PHONY : src/MapLayer.cpp.s
+
 src/Panel.o: src/Panel.cpp.o
 
 .PHONY : src/Panel.o
@@ -582,6 +636,33 @@ src/WorldGeneratorState.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/WorldGeneratorState.cpp.s
 .PHONY : src/WorldGeneratorState.cpp.s
 
+src/WorldMap.o: src/WorldMap.cpp.o
+
+.PHONY : src/WorldMap.o
+
+# target to build an object file
+src/WorldMap.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/WorldMap.cpp.o
+.PHONY : src/WorldMap.cpp.o
+
+src/WorldMap.i: src/WorldMap.cpp.i
+
+.PHONY : src/WorldMap.i
+
+# target to preprocess a source file
+src/WorldMap.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/WorldMap.cpp.i
+.PHONY : src/WorldMap.cpp.i
+
+src/WorldMap.s: src/WorldMap.cpp.s
+
+.PHONY : src/WorldMap.s
+
+# target to generate assembly for a file
+src/WorldMap.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/WorldMap.cpp.s
+.PHONY : src/WorldMap.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -639,6 +720,12 @@ help:
 	@echo "... src/IGraphicsLayer.o"
 	@echo "... src/IGraphicsLayer.i"
 	@echo "... src/IGraphicsLayer.s"
+	@echo "... src/MapFactory.o"
+	@echo "... src/MapFactory.i"
+	@echo "... src/MapFactory.s"
+	@echo "... src/MapLayer.o"
+	@echo "... src/MapLayer.i"
+	@echo "... src/MapLayer.s"
 	@echo "... src/Panel.o"
 	@echo "... src/Panel.i"
 	@echo "... src/Panel.s"
@@ -669,6 +756,9 @@ help:
 	@echo "... src/WorldGeneratorState.o"
 	@echo "... src/WorldGeneratorState.i"
 	@echo "... src/WorldGeneratorState.s"
+	@echo "... src/WorldMap.o"
+	@echo "... src/WorldMap.i"
+	@echo "... src/WorldMap.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

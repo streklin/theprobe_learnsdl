@@ -14,11 +14,14 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "WorldGeneratorState.h"
-
+#include "MapLayer.h"
 
 WorldGeneratorState::WorldGeneratorState(GraphicsManager* manager, AudioManager* audioManager, int const stateId) : GameState(manager, audioManager, stateId) {
     backgroundLayer_ = std::shared_ptr<IGraphicsLayer>(static_cast<IGraphicsLayer*>(new SimpleBackgroundLayer("images/Space2.png", manager->renderer())));
     spriteLayer_ = std::shared_ptr<IGraphicsLayer>(static_cast<IGraphicsLayer*> (new SpriteLayer()));
+    mapLayer_ = std::shared_ptr<IGraphicsLayer>(static_cast<IGraphicsLayer*>(new MapLayer(manager->renderer())));
+
+    isShowingMap_ = false;
 }
 
 WorldGeneratorState::~WorldGeneratorState() {
@@ -33,6 +36,7 @@ void WorldGeneratorState::enterState() {
     graphicsManager_->clearLayers();
     graphicsManager_->addLayer(backgroundLayer_);
     graphicsManager_->addLayer(spriteLayer_);
+    graphicsManager_->addLayer(mapLayer_);
 
     /*
     Load the appropriate sprites.
@@ -48,14 +52,12 @@ void WorldGeneratorState::enterState() {
     animation.setAnimationSpeed(250);
 
     loyd_->addAnimation(animation);
-
     loyd_->setAnimation(0);
 
     SpriteLayer* l = static_cast<SpriteLayer*>(spriteLayer_.get());
     l->addSprite(loyd_);
 
     worldGenerationThread_ = std::thread([this]() {
-        std::cout << "Starting World Generation ..." << std::endl;
         (static_cast<WorldGeneratorState*>(this))->generator_.generateWorld();
     }); 
 }
@@ -65,10 +67,18 @@ void WorldGeneratorState::exitState() {
     l->clearSprites();
 }
 
+void WorldGeneratorState::showWorldMap() {
+    MapLayer* m = static_cast<MapLayer*>(mapLayer_.get());
+    m->setWorldMap(generator_.gameWorld());
+    m->isHidden = false;
+    isShowingMap_ = true;
+}
+
 int WorldGeneratorState::gameLoop(int const elapsedTime) {
 
-    if (generator_.isCompleted()) {
-        std::cout << "Thread Completed it's work!" << std::endl;
+    if (generator_.isCompleted() && !isShowingMap_) {
+        std::cout << "Let's draw the map!" << std::endl;
+        showWorldMap();
     }
 
     return -1;

@@ -10,7 +10,6 @@
 #include "IGraphicsLayer.h"
 #include "Sprite.h"
 
-
 class WorldGeneratorState final : public GameState {
 public:
     WorldGeneratorState(GraphicsManager* manager, AudioManager* audioManager, int const stateId);
@@ -21,12 +20,20 @@ public:
     int gameLoop(int const elapsedTime) override;
     bool handleEvents(SDL_Event* e) override;
 private:
+
+    void showWorldMap();
+
     std::shared_ptr<IGraphicsLayer> backgroundLayer_;
+    std::shared_ptr<IGraphicsLayer> mapLayer_;
     std::shared_ptr<IGraphicsLayer> spriteLayer_;
+    
     std::shared_ptr<Sprite> loyd_;
     std::thread worldGenerationThread_;
 
     WorldGenerator generator_;
+
+    bool isShowingMap_;
+
 };
 
 #endif

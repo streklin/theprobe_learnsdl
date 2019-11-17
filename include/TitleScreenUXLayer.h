@@ -11,7 +11,6 @@ class TitleScreenUXLayer final : public IGraphicsLayer {
 public:
     TitleScreenUXLayer(SDL_Renderer* renderer);
     void render(SDL_Renderer* renderer) override;
-
     void updateMouse(int const x, int const y) override;
 
 private:
