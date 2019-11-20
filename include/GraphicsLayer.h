@@ -3,9 +3,9 @@
 
 #include <SDL.h>
 
-class IGraphicsLayer {
+class GraphicsLayer {
 public:
-    IGraphicsLayer();
+    GraphicsLayer();
 
     virtual void render(SDL_Renderer* renderer);
     virtual void updateMouse(int const x, int const y);

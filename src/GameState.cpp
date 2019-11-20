@@ -1,21 +1,21 @@
 #include "GameState.h"
-#include "GraphicsManager.h"
-#include "AudioManager.h"
 
-GameState::GameState(GraphicsManager* manager, AudioManager* audioManager, int const stateId) {
-    graphicsManager_ = manager;
-    audioManager_ = audioManager;
-    stateId_ = stateId;
+GameState::GameState(GraphicsManager* graphics, AudioManager* audio) {
+    graphics_ = graphics;
+    audio_ = audio;
+    isReadyToTransition_ = false;
+}
+
+GameState::~GameState() {
+    exitState();
 }
 
 void GameState::enterState() {}
 
 void GameState::exitState() {}
 
-int GameState::gameLoop(int const elapsedTime) {
-    return 0;
-}
+void GameState::update(int elapsedTicks){} 
 
-int GameState::stateId() { return stateId_; }
+GameState* GameState::nextState() { return nullptr; }
 
-bool GameState::handleEvents(SDL_Event* e) { return true; }
+bool GameState::isReadyToTransition() { return isReadyToTransition_; }

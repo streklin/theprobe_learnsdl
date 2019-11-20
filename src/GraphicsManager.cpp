@@ -6,7 +6,7 @@
 #include <string>
 #include <algorithm>
 
-#include "IGraphicsLayer.h"
+#include "GraphicsLayer.h"
 #include "GraphicsManager.h"
 
 GraphicsManager::GraphicsManager(int const screenWidth, int const screenHeight) {
@@ -18,6 +18,7 @@ GraphicsManager::~GraphicsManager() {
     close();
 }
 
+// need to manually clean up SDL using the provided methods.
 void GraphicsManager::close() {
     SDL_DestroyWindow( window_ );
     SDL_DestroyRenderer(renderer_);
@@ -64,13 +65,13 @@ bool GraphicsManager::init() {
 }
 
 
-void GraphicsManager::addLayer(std::shared_ptr<IGraphicsLayer> layer) {
+void GraphicsManager::addLayer(GraphicsLayer* layer) {
     layers_.emplace_back(layer);
 }
 
 void GraphicsManager::render() {
     SDL_RenderClear( renderer_ );
-    std::for_each(std::begin(layers_), std::end(layers_), [this](std::shared_ptr<IGraphicsLayer> l) { if(!l->isHidden) l->render(this->renderer_); });
+    std::for_each(std::begin(layers_), std::end(layers_), [this](GraphicsLayer* l) { if(!l->isHidden) l->render(this->renderer_); });
     SDL_RenderPresent( renderer_ );
 }
 

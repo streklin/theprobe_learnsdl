@@ -1,27 +1,23 @@
 #ifndef TITLESCREENSTATE
 #define TITLESCREENSTATE
 
-#include <SDL.h>
 #include <memory>
 
 #include "GameState.h"
-#include "IGraphicsLayer.h"
-#include "TitleScreenUXLayer.h"
+#include "GraphicsLayer.h"
 
-class TitleScreenState final : public GameState {
+class TitleScreenState : public GameState {
 public:
-    TitleScreenState(GraphicsManager* manager, AudioManager* audioManager, int const stateId);
+    TitleScreenState(GraphicsManager* graphics, AudioManager* audio);
 
     void enterState() override;
     void exitState() override;
-    int gameLoop(int const elapsedTime) override;
-    bool handleEvents(SDL_Event* e) override;
+    void update(int elapsedTicks) override; 
+    State nextState() override;
+    bool isReadyToTransition() override;
 
 private:
-    std::shared_ptr<IGraphicsLayer> backgroundLayer_;
-    std::shared_ptr<IGraphicsLayer> uxLayer_;
 
-    bool exitState_;
-};
+}
 
 #endif

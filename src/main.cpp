@@ -1,10 +1,10 @@
 
-#include "GameStateMachine.h"
+#include <memory>
 
-int main() {
+#include "Game.h"
 
-    GameStateMachine game = GameStateMachine();
-    game.run();
-
+int main() {    
+    Game g = Game();
+    g.run();
     return 1;
 }

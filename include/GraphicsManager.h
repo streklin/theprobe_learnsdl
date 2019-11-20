@@ -6,7 +6,7 @@
 #include <string>
 #include <memory>
 
-#include "IGraphicsLayer.h"
+#include "GraphicsLayer.h"
 
 const int SCREEN_FPS = 60;
 const int SCREEN_TICKS_PER_FRAME = 1000 / SCREEN_FPS;
@@ -18,7 +18,7 @@ public:
 
     bool init();
     void close();
-    void addLayer(std::shared_ptr<IGraphicsLayer> layer);
+    void addLayer(GraphicsLayer* layer);
     void clearLayers();
     void render();
 
@@ -31,7 +31,7 @@ private:
     SDL_Window* window_;
     SDL_Renderer* renderer_;
 
-    std::vector<std::shared_ptr<IGraphicsLayer>> layers_;
+    std::vector<GraphicsLayer*> layers_;
 
 };
 
