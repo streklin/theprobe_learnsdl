@@ -17,13 +17,16 @@ enum States {
 
 class GameState {
 public:
+    GameState();
     GameState(GraphicsManager* graphics, AudioManager* audio);
+    
     ~GameState();
 
     virtual void enterState();
     virtual void exitState();
     virtual void update(int elapsedTicks); 
     virtual States nextState();
+    virtual void handleEvents(SDL_Event* e);
 
     virtual bool isReadyToTransition();
 

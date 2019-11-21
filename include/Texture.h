@@ -18,6 +18,7 @@ public:
     int getHeight();
 
     void setScale(const float x, const float y);
+    void setPosition(const int x, const int y);
 
 protected:
     float xScale_;
@@ -25,6 +26,9 @@ protected:
     
 private:
     SDL_Texture* texture_;
+
+    int x_;
+    int y_;
 
     int width_;
     int height_;

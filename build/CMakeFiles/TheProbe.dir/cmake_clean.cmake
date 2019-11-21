@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.o"
   "CMakeFiles/TheProbe.dir/src/GraphicsLayer.cpp.o"
   "CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o"
   "CMakeFiles/TheProbe.dir/src/Texture.cpp.o"
   "CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o"
   "CMakeFiles/TheProbe.dir/src/main.cpp.o"

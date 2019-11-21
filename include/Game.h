@@ -4,8 +4,10 @@
 #include <vector>
 #include <memory>
 
+#include "GameStateFactory.h"
 #include "GraphicsManager.h"
 #include "GameState.h"
+#include "StopWatch.h"
 
 class Game final {
 public:
@@ -13,8 +15,14 @@ public:
     void run();
 
 private:
+    void handleEvents();
+
+    bool isGameExitTriggered_;
     std::unique_ptr<GraphicsManager> graphicsManager_;
-    std::unique_ptr<GameState> currentState_;
+
+    std::unique_ptr<GameState> gameState_;
+    GameStateFactory gameStateFactory_;
+    StopWatch stopWatch_;
 };
 
 #endif

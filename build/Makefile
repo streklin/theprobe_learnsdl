@@ -312,6 +312,60 @@ src/GraphicsManager.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.s
 .PHONY : src/GraphicsManager.cpp.s
 
+src/StaticTextureLayer.o: src/StaticTextureLayer.cpp.o
+
+.PHONY : src/StaticTextureLayer.o
+
+# target to build an object file
+src/StaticTextureLayer.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o
+.PHONY : src/StaticTextureLayer.cpp.o
+
+src/StaticTextureLayer.i: src/StaticTextureLayer.cpp.i
+
+.PHONY : src/StaticTextureLayer.i
+
+# target to preprocess a source file
+src/StaticTextureLayer.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.i
+.PHONY : src/StaticTextureLayer.cpp.i
+
+src/StaticTextureLayer.s: src/StaticTextureLayer.cpp.s
+
+.PHONY : src/StaticTextureLayer.s
+
+# target to generate assembly for a file
+src/StaticTextureLayer.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.s
+.PHONY : src/StaticTextureLayer.cpp.s
+
+src/StopWatch.o: src/StopWatch.cpp.o
+
+.PHONY : src/StopWatch.o
+
+# target to build an object file
+src/StopWatch.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o
+.PHONY : src/StopWatch.cpp.o
+
+src/StopWatch.i: src/StopWatch.cpp.i
+
+.PHONY : src/StopWatch.i
+
+# target to preprocess a source file
+src/StopWatch.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/StopWatch.cpp.i
+.PHONY : src/StopWatch.cpp.i
+
+src/StopWatch.s: src/StopWatch.cpp.s
+
+.PHONY : src/StopWatch.s
+
+# target to generate assembly for a file
+src/StopWatch.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/StopWatch.cpp.s
+.PHONY : src/StopWatch.cpp.s
+
 src/Texture.o: src/Texture.cpp.o
 
 .PHONY : src/Texture.o
@@ -423,6 +477,12 @@ help:
 	@echo "... src/GraphicsManager.o"
 	@echo "... src/GraphicsManager.i"
 	@echo "... src/GraphicsManager.s"
+	@echo "... src/StaticTextureLayer.o"
+	@echo "... src/StaticTextureLayer.i"
+	@echo "... src/StaticTextureLayer.s"
+	@echo "... src/StopWatch.o"
+	@echo "... src/StopWatch.i"
+	@echo "... src/StopWatch.s"
 	@echo "... src/Texture.o"
 	@echo "... src/Texture.i"
 	@echo "... src/Texture.s"

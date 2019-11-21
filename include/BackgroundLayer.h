@@ -11,7 +11,7 @@
 class BackgroundLayer final : public GraphicsLayer {
 public:
     BackgroundLayer(const std::string path, SDL_Renderer* renderer);
-    virtual void render();
+    void render() override;
 
 private:
     std::unique_ptr<Texture> background_;

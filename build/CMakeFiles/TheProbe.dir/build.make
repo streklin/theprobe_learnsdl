@@ -148,9 +148,35 @@ CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gene/git/theprobe_learnsdl/src/GraphicsManager.cpp -o CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.s
 
+CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o: CMakeFiles/TheProbe.dir/flags.make
+CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o: ../src/StaticTextureLayer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o -c /home/gene/git/theprobe_learnsdl/src/StaticTextureLayer.cpp
+
+CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gene/git/theprobe_learnsdl/src/StaticTextureLayer.cpp > CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.i
+
+CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gene/git/theprobe_learnsdl/src/StaticTextureLayer.cpp -o CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.s
+
+CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o: CMakeFiles/TheProbe.dir/flags.make
+CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o: ../src/StopWatch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o -c /home/gene/git/theprobe_learnsdl/src/StopWatch.cpp
+
+CMakeFiles/TheProbe.dir/src/StopWatch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TheProbe.dir/src/StopWatch.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gene/git/theprobe_learnsdl/src/StopWatch.cpp > CMakeFiles/TheProbe.dir/src/StopWatch.cpp.i
+
+CMakeFiles/TheProbe.dir/src/StopWatch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TheProbe.dir/src/StopWatch.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gene/git/theprobe_learnsdl/src/StopWatch.cpp -o CMakeFiles/TheProbe.dir/src/StopWatch.cpp.s
+
 CMakeFiles/TheProbe.dir/src/Texture.cpp.o: CMakeFiles/TheProbe.dir/flags.make
 CMakeFiles/TheProbe.dir/src/Texture.cpp.o: ../src/Texture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TheProbe.dir/src/Texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TheProbe.dir/src/Texture.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TheProbe.dir/src/Texture.cpp.o -c /home/gene/git/theprobe_learnsdl/src/Texture.cpp
 
 CMakeFiles/TheProbe.dir/src/Texture.cpp.i: cmake_force
@@ -163,7 +189,7 @@ CMakeFiles/TheProbe.dir/src/Texture.cpp.s: cmake_force
 
 CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o: CMakeFiles/TheProbe.dir/flags.make
 CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o: ../src/TitleScreenState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o -c /home/gene/git/theprobe_learnsdl/src/TitleScreenState.cpp
 
 CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.i: cmake_force
@@ -176,7 +202,7 @@ CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.s: cmake_force
 
 CMakeFiles/TheProbe.dir/src/main.cpp.o: CMakeFiles/TheProbe.dir/flags.make
 CMakeFiles/TheProbe.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TheProbe.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TheProbe.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TheProbe.dir/src/main.cpp.o -c /home/gene/git/theprobe_learnsdl/src/main.cpp
 
 CMakeFiles/TheProbe.dir/src/main.cpp.i: cmake_force
@@ -196,6 +222,8 @@ TheProbe_OBJECTS = \
 "CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.o" \
 "CMakeFiles/TheProbe.dir/src/GraphicsLayer.cpp.o" \
 "CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.o" \
+"CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o" \
+"CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o" \
 "CMakeFiles/TheProbe.dir/src/Texture.cpp.o" \
 "CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o" \
 "CMakeFiles/TheProbe.dir/src/main.cpp.o"
@@ -210,6 +238,8 @@ TheProbe: CMakeFiles/TheProbe.dir/src/GameState.cpp.o
 TheProbe: CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.o
 TheProbe: CMakeFiles/TheProbe.dir/src/GraphicsLayer.cpp.o
 TheProbe: CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.o
+TheProbe: CMakeFiles/TheProbe.dir/src/StaticTextureLayer.cpp.o
+TheProbe: CMakeFiles/TheProbe.dir/src/StopWatch.cpp.o
 TheProbe: CMakeFiles/TheProbe.dir/src/Texture.cpp.o
 TheProbe: CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o
 TheProbe: CMakeFiles/TheProbe.dir/src/main.cpp.o
@@ -220,7 +250,7 @@ TheProbe: /usr/lib/x86_64-linux-gnu/libSDL2_image.so
 TheProbe: /usr/lib/x86_64-linux-gnu/libSDL2_mixer.so
 TheProbe: /usr/lib/x86_64-linux-gnu/libSDL2.so
 TheProbe: CMakeFiles/TheProbe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable TheProbe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gene/git/theprobe_learnsdl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable TheProbe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TheProbe.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

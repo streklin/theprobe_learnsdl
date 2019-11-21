@@ -1,5 +1,8 @@
 #include <memory>
 #include <thread>
+#include <SDL.h>
+#include <iostream>
+
 #include "GraphicsManager.h"
 #include "Game.h"
 
@@ -9,9 +12,29 @@ const int gScreenHeight = 960;
 Game::Game() {
     graphicsManager_ = std::make_unique<GraphicsManager>(gScreenWidth, gScreenHeight);
     graphicsManager_->init();
+    isGameExitTriggered_ = false;
 
+    gameStateFactory_ = GameStateFactory(graphicsManager_.get(), nullptr);
+    gameState_ = gameStateFactory_.createState(States::TitleScreen);
+    gameState_->enterState();
 }
 
 void Game::run() {
-    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+    while(!isGameExitTriggered_) {
+        handleEvents();
+        gameState_->update(stopWatch_.getElaspedTicks());
+        graphicsManager_->render();
+    }
+}
+
+void Game::handleEvents() {
+    SDL_Event e;
+
+    while( SDL_PollEvent( &e ) != 0 ) {
+
+        if( e.type == SDL_QUIT ) {
+            isGameExitTriggered_ = true;
+            return;
+        }
+    }
 }

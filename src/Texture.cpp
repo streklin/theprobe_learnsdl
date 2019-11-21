@@ -9,6 +9,8 @@
 Texture::Texture() {
     xScale_ = 1;
     yScale_ = 1;
+    x_ = 0;
+    y_ = 0;
     texture_ = nullptr;
 }
 
@@ -48,10 +50,17 @@ int Texture::getWidth() { return width_; }
 int Texture::getHeight() { return height_; }
 
 void Texture::render(SDL_Renderer* renderer) {
-    SDL_RenderCopy( renderer, texture_, NULL, NULL );
+    SDL_Rect source = {0, 0, width_, height_};
+    SDL_Rect target = {x_, y_, width_ * xScale_, height_ * yScale_};
+    SDL_RenderCopy( renderer, texture_, &source, &target );
 }
 
 void Texture::setScale(const float x, const float y) {
     xScale_ = x;
     yScale_ = y;
+}
+
+void Texture::setPosition(const int x, const int y) {
+    x_ = x;
+    y_ = y;
 }
