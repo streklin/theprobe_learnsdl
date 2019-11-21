@@ -23,14 +23,14 @@ public:
     virtual void enterState();
     virtual void exitState();
     virtual void update(int elapsedTicks); 
-    virtual State nextState();
+    virtual States nextState();
 
     virtual bool isReadyToTransition();
 
-private:
+protected:
     GraphicsManager* graphics_; // data handle, not owned
     AudioManager* audio_; //data handle, not owned.
-    std::vector<State> children_; // data handles, not owned, used for transitions.
+    std::vector<States> children_; // data handles, not owned, used for transitions.
     bool isReadyToTransition_; // start state transition when true
 };
 

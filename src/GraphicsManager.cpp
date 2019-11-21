@@ -71,7 +71,7 @@ void GraphicsManager::addLayer(GraphicsLayer* layer) {
 
 void GraphicsManager::render() {
     SDL_RenderClear( renderer_ );
-    std::for_each(std::begin(layers_), std::end(layers_), [this](GraphicsLayer* l) { if(!l->isHidden) l->render(this->renderer_); });
+    std::for_each(std::begin(layers_), std::end(layers_), [this](GraphicsLayer* l) { if(!l->isHidden) l->render(); });
     SDL_RenderPresent( renderer_ );
 }
 
@@ -79,6 +79,6 @@ void GraphicsManager::clearLayers() {
     layers_.clear();
 }
 
-SDL_Renderer* GraphicsManager::renderer() {
+SDL_Renderer* GraphicsManager::getRenderer() {
     return renderer_;
 }

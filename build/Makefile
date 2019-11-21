@@ -150,6 +150,33 @@ src/AudioManager.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/AudioManager.cpp.s
 .PHONY : src/AudioManager.cpp.s
 
+src/BackgroundLayer.o: src/BackgroundLayer.cpp.o
+
+.PHONY : src/BackgroundLayer.o
+
+# target to build an object file
+src/BackgroundLayer.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/BackgroundLayer.cpp.o
+.PHONY : src/BackgroundLayer.cpp.o
+
+src/BackgroundLayer.i: src/BackgroundLayer.cpp.i
+
+.PHONY : src/BackgroundLayer.i
+
+# target to preprocess a source file
+src/BackgroundLayer.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/BackgroundLayer.cpp.i
+.PHONY : src/BackgroundLayer.cpp.i
+
+src/BackgroundLayer.s: src/BackgroundLayer.cpp.s
+
+.PHONY : src/BackgroundLayer.s
+
+# target to generate assembly for a file
+src/BackgroundLayer.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/BackgroundLayer.cpp.s
+.PHONY : src/BackgroundLayer.cpp.s
+
 src/Game.o: src/Game.cpp.o
 
 .PHONY : src/Game.o
@@ -203,6 +230,33 @@ src/GameState.s: src/GameState.cpp.s
 src/GameState.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GameState.cpp.s
 .PHONY : src/GameState.cpp.s
+
+src/GameStateFactory.o: src/GameStateFactory.cpp.o
+
+.PHONY : src/GameStateFactory.o
+
+# target to build an object file
+src/GameStateFactory.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.o
+.PHONY : src/GameStateFactory.cpp.o
+
+src/GameStateFactory.i: src/GameStateFactory.cpp.i
+
+.PHONY : src/GameStateFactory.i
+
+# target to preprocess a source file
+src/GameStateFactory.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.i
+.PHONY : src/GameStateFactory.cpp.i
+
+src/GameStateFactory.s: src/GameStateFactory.cpp.s
+
+.PHONY : src/GameStateFactory.s
+
+# target to generate assembly for a file
+src/GameStateFactory.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.s
+.PHONY : src/GameStateFactory.cpp.s
 
 src/GraphicsLayer.o: src/GraphicsLayer.cpp.o
 
@@ -258,6 +312,60 @@ src/GraphicsManager.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.s
 .PHONY : src/GraphicsManager.cpp.s
 
+src/Texture.o: src/Texture.cpp.o
+
+.PHONY : src/Texture.o
+
+# target to build an object file
+src/Texture.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Texture.cpp.o
+.PHONY : src/Texture.cpp.o
+
+src/Texture.i: src/Texture.cpp.i
+
+.PHONY : src/Texture.i
+
+# target to preprocess a source file
+src/Texture.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Texture.cpp.i
+.PHONY : src/Texture.cpp.i
+
+src/Texture.s: src/Texture.cpp.s
+
+.PHONY : src/Texture.s
+
+# target to generate assembly for a file
+src/Texture.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Texture.cpp.s
+.PHONY : src/Texture.cpp.s
+
+src/TitleScreenState.o: src/TitleScreenState.cpp.o
+
+.PHONY : src/TitleScreenState.o
+
+# target to build an object file
+src/TitleScreenState.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o
+.PHONY : src/TitleScreenState.cpp.o
+
+src/TitleScreenState.i: src/TitleScreenState.cpp.i
+
+.PHONY : src/TitleScreenState.i
+
+# target to preprocess a source file
+src/TitleScreenState.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.i
+.PHONY : src/TitleScreenState.cpp.i
+
+src/TitleScreenState.s: src/TitleScreenState.cpp.s
+
+.PHONY : src/TitleScreenState.s
+
+# target to generate assembly for a file
+src/TitleScreenState.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.s
+.PHONY : src/TitleScreenState.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -297,18 +405,30 @@ help:
 	@echo "... src/AudioManager.o"
 	@echo "... src/AudioManager.i"
 	@echo "... src/AudioManager.s"
+	@echo "... src/BackgroundLayer.o"
+	@echo "... src/BackgroundLayer.i"
+	@echo "... src/BackgroundLayer.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
 	@echo "... src/GameState.o"
 	@echo "... src/GameState.i"
 	@echo "... src/GameState.s"
+	@echo "... src/GameStateFactory.o"
+	@echo "... src/GameStateFactory.i"
+	@echo "... src/GameStateFactory.s"
 	@echo "... src/GraphicsLayer.o"
 	@echo "... src/GraphicsLayer.i"
 	@echo "... src/GraphicsLayer.s"
 	@echo "... src/GraphicsManager.o"
 	@echo "... src/GraphicsManager.i"
 	@echo "... src/GraphicsManager.s"
+	@echo "... src/Texture.o"
+	@echo "... src/Texture.i"
+	@echo "... src/Texture.s"
+	@echo "... src/TitleScreenState.o"
+	@echo "... src/TitleScreenState.i"
+	@echo "... src/TitleScreenState.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

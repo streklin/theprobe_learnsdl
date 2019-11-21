@@ -16,6 +16,6 @@ void GameState::exitState() {}
 
 void GameState::update(int elapsedTicks){} 
 
-GameState* GameState::nextState() { return nullptr; }
+States GameState::nextState() { return States::TitleScreen; }
 
 bool GameState::isReadyToTransition() { return isReadyToTransition_; }

@@ -22,7 +22,7 @@ public:
     void clearLayers();
     void render();
 
-    SDL_Renderer* renderer();
+    SDL_Renderer* getRenderer();
 
 private:
     int screenWidth_;

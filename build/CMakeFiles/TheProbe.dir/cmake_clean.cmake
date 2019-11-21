@@ -1,9 +1,13 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TheProbe.dir/src/AudioManager.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/BackgroundLayer.cpp.o"
   "CMakeFiles/TheProbe.dir/src/Game.cpp.o"
   "CMakeFiles/TheProbe.dir/src/GameState.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.o"
   "CMakeFiles/TheProbe.dir/src/GraphicsLayer.cpp.o"
   "CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/Texture.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/TitleScreenState.cpp.o"
   "CMakeFiles/TheProbe.dir/src/main.cpp.o"
   "TheProbe"
   "TheProbe.pdb"

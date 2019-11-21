@@ -12,6 +12,16 @@ SDL_mixer.h
 memory
 -
 
+../include/Game.h
+vector
+-
+memory
+-
+GraphicsManager.h
+../include/GraphicsManager.h
+GameState.h
+../include/GameState.h
+
 ../include/GameState.h
 vector
 -
@@ -36,9 +46,15 @@ memory
 GraphicsLayer.h
 ../include/GraphicsLayer.h
 
-/home/gene/git/theprobe_learnsdl/src/GameState.cpp
-GameState.h
-/home/gene/git/theprobe_learnsdl/src/GameState.h
+/home/gene/git/theprobe_learnsdl/src/Game.cpp
+memory
+-
+thread
+-
+GraphicsManager.h
+/home/gene/git/theprobe_learnsdl/src/GraphicsManager.h
+Game.h
+/home/gene/git/theprobe_learnsdl/src/Game.h
 
 /usr/include/SDL2/SDL.h
 SDL_main.h
