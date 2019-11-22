@@ -14,7 +14,12 @@ public:
     void handleEvents(SDL_Event* e);
     bool isClicked();
 
+    void setPosition(const int x, const int y);
+
 private:
+
+    bool isMouseOver(const int mouseX, const int mouseY);
+
     std::unique_ptr<Sprite> sprite_;
     bool isButtonClicked_;
     bool isButtonHovered_;

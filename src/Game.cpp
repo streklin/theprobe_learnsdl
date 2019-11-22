@@ -36,5 +36,7 @@ void Game::handleEvents() {
             isGameExitTriggered_ = true;
             return;
         }
+
+        gameState_->handleEvents(&e);
     }
 }

@@ -9,6 +9,7 @@
 #include "Animation.h"
 
 class Sprite final : public Texture {
+public:
     Sprite(const std::string spriteSheetPath, SDL_Renderer* renderer);
 
     void render(SDL_Renderer* renderer) override;

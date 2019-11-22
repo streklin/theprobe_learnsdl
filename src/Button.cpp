@@ -5,16 +5,19 @@
 #include "Animation.h"
 #include "Button.h"
 
+const int StandardButtonAnimationIndex = 0;
+const int HoverButtonAnimationIndex = 1;
+
 Button::Button(const std::string spriteSheet, SDL_Renderer* renderer, const int buttonHeight, const int buttonWidth) {
     sprite_ = std::make_unique<Sprite>(spriteSheet, renderer);
 
     buttonHeight_ = buttonHeight;
-    buttonWidth_ = buttonWidth_;
+    buttonWidth_ = buttonWidth;
 
-    Animation standardFrame;
+    Animation standardFrame = Animation(0);
     standardFrame.addFrame({0, 0, buttonWidth_, buttonHeight_});
 
-    Animation hoverFrame;
+    Animation hoverFrame = Animation(0);
     hoverFrame.addFrame({0, buttonHeight_, buttonWidth_, buttonHeight_});
 
     sprite_->addAnimation(std::move(standardFrame));
@@ -27,18 +30,33 @@ Button::Button(const std::string spriteSheet, SDL_Renderer* renderer, const int 
 }
 
 void Button::render(SDL_Renderer* renderer) {
-    // check if hover
-        // yes, set animation to hover
-        // no, set to standard
-    // call the sprites render function.
+    if (isButtonHovered_) {
+        sprite_->setAnimation(HoverButtonAnimationIndex);
+    } else {
+        sprite_->setAnimation(StandardButtonAnimationIndex);
+    }
+
+    sprite_->render(renderer);
 }
 
 void Button::handleEvents(SDL_Event* e) {
-    // check if the mouse is over the button
-
-    // is the mouse button pressed?
+    int x, y;
+    SDL_GetMouseState( &x, &y );
+    isButtonHovered_ = isMouseOver(x, y);
+    isButtonClicked_ = ( e->type == SDL_MOUSEBUTTONDOWN && isButtonHovered_);
 }
 
 bool Button::isClicked() {
     return isButtonClicked_;
+}
+
+bool Button::isMouseOver(const int mouseX, const int mouseY) {
+   return   mouseX >= sprite_->getX() 
+            && mouseX <= sprite_->getX() + buttonWidth_ 
+            && mouseY <= sprite_->getY() + buttonHeight_ 
+            && mouseY >= sprite_->getY();
+}
+
+void Button::setPosition(const int x, const int y) {
+    sprite_->setPosition(x, y);
 }

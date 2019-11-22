@@ -204,6 +204,60 @@ src/BackgroundLayer.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/BackgroundLayer.cpp.s
 .PHONY : src/BackgroundLayer.cpp.s
 
+src/Button.o: src/Button.cpp.o
+
+.PHONY : src/Button.o
+
+# target to build an object file
+src/Button.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Button.cpp.o
+.PHONY : src/Button.cpp.o
+
+src/Button.i: src/Button.cpp.i
+
+.PHONY : src/Button.i
+
+# target to preprocess a source file
+src/Button.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Button.cpp.i
+.PHONY : src/Button.cpp.i
+
+src/Button.s: src/Button.cpp.s
+
+.PHONY : src/Button.s
+
+# target to generate assembly for a file
+src/Button.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Button.cpp.s
+.PHONY : src/Button.cpp.s
+
+src/ButtonLayer.o: src/ButtonLayer.cpp.o
+
+.PHONY : src/ButtonLayer.o
+
+# target to build an object file
+src/ButtonLayer.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/ButtonLayer.cpp.o
+.PHONY : src/ButtonLayer.cpp.o
+
+src/ButtonLayer.i: src/ButtonLayer.cpp.i
+
+.PHONY : src/ButtonLayer.i
+
+# target to preprocess a source file
+src/ButtonLayer.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/ButtonLayer.cpp.i
+.PHONY : src/ButtonLayer.cpp.i
+
+src/ButtonLayer.s: src/ButtonLayer.cpp.s
+
+.PHONY : src/ButtonLayer.s
+
+# target to generate assembly for a file
+src/ButtonLayer.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/ButtonLayer.cpp.s
+.PHONY : src/ButtonLayer.cpp.s
+
 src/Game.o: src/Game.cpp.o
 
 .PHONY : src/Game.o
@@ -519,6 +573,12 @@ help:
 	@echo "... src/BackgroundLayer.o"
 	@echo "... src/BackgroundLayer.i"
 	@echo "... src/BackgroundLayer.s"
+	@echo "... src/Button.o"
+	@echo "... src/Button.i"
+	@echo "... src/Button.s"
+	@echo "... src/ButtonLayer.o"
+	@echo "... src/ButtonLayer.i"
+	@echo "... src/ButtonLayer.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"

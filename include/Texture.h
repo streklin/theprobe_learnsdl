@@ -20,6 +20,9 @@ public:
     void setScale(const float x, const float y);
     void setPosition(const int x, const int y);
 
+    int getX() { return x_; }
+    int getY() { return y_; }
+
 protected:
     SDL_Texture* texture_;
 

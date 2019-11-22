@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TheProbe.dir/src/Animation.cpp.o"
   "CMakeFiles/TheProbe.dir/src/AudioManager.cpp.o"
   "CMakeFiles/TheProbe.dir/src/BackgroundLayer.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/Button.cpp.o"
+  "CMakeFiles/TheProbe.dir/src/ButtonLayer.cpp.o"
   "CMakeFiles/TheProbe.dir/src/Game.cpp.o"
   "CMakeFiles/TheProbe.dir/src/GameState.cpp.o"
   "CMakeFiles/TheProbe.dir/src/GameStateFactory.cpp.o"
