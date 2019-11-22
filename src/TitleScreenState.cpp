@@ -40,7 +40,6 @@ void TitleScreenState::buildStaticTextureLayer() {
     hudTexture_->setScale(0.5, 1.0);
     
     staticTextureLayer_->addTexture(hudTexture_.get());
-
     
     graphics_->addLayer(static_cast<GraphicsLayer*>(staticTextureLayer_.get()));
-}
+} 

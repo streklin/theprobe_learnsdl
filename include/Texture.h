@@ -21,11 +21,10 @@ public:
     void setPosition(const int x, const int y);
 
 protected:
+    SDL_Texture* texture_;
+
     float xScale_;
     float yScale_;
-    
-private:
-    SDL_Texture* texture_;
 
     int x_;
     int y_;

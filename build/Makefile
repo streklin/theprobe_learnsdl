@@ -123,6 +123,33 @@ TheProbe/fast:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/build
 .PHONY : TheProbe/fast
 
+src/Animation.o: src/Animation.cpp.o
+
+.PHONY : src/Animation.o
+
+# target to build an object file
+src/Animation.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Animation.cpp.o
+.PHONY : src/Animation.cpp.o
+
+src/Animation.i: src/Animation.cpp.i
+
+.PHONY : src/Animation.i
+
+# target to preprocess a source file
+src/Animation.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Animation.cpp.i
+.PHONY : src/Animation.cpp.i
+
+src/Animation.s: src/Animation.cpp.s
+
+.PHONY : src/Animation.s
+
+# target to generate assembly for a file
+src/Animation.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Animation.cpp.s
+.PHONY : src/Animation.cpp.s
+
 src/AudioManager.o: src/AudioManager.cpp.o
 
 .PHONY : src/AudioManager.o
@@ -312,6 +339,33 @@ src/GraphicsManager.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.s
 .PHONY : src/GraphicsManager.cpp.s
 
+src/Sprite.o: src/Sprite.cpp.o
+
+.PHONY : src/Sprite.o
+
+# target to build an object file
+src/Sprite.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Sprite.cpp.o
+.PHONY : src/Sprite.cpp.o
+
+src/Sprite.i: src/Sprite.cpp.i
+
+.PHONY : src/Sprite.i
+
+# target to preprocess a source file
+src/Sprite.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Sprite.cpp.i
+.PHONY : src/Sprite.cpp.i
+
+src/Sprite.s: src/Sprite.cpp.s
+
+.PHONY : src/Sprite.s
+
+# target to generate assembly for a file
+src/Sprite.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/Sprite.cpp.s
+.PHONY : src/Sprite.cpp.s
+
 src/StaticTextureLayer.o: src/StaticTextureLayer.cpp.o
 
 .PHONY : src/StaticTextureLayer.o
@@ -456,6 +510,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... TheProbe"
+	@echo "... src/Animation.o"
+	@echo "... src/Animation.i"
+	@echo "... src/Animation.s"
 	@echo "... src/AudioManager.o"
 	@echo "... src/AudioManager.i"
 	@echo "... src/AudioManager.s"
@@ -477,6 +534,9 @@ help:
 	@echo "... src/GraphicsManager.o"
 	@echo "... src/GraphicsManager.i"
 	@echo "... src/GraphicsManager.s"
+	@echo "... src/Sprite.o"
+	@echo "... src/Sprite.i"
+	@echo "... src/Sprite.s"
 	@echo "... src/StaticTextureLayer.o"
 	@echo "... src/StaticTextureLayer.i"
 	@echo "... src/StaticTextureLayer.s"
