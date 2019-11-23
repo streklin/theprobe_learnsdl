@@ -15,7 +15,7 @@ public:
     bool isClicked();
 
     void setPosition(const int x, const int y);
-
+    void setScale(const int xScale, const int yScale);
 private:
 
     bool isMouseOver(const int mouseX, const int mouseY);

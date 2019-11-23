@@ -16,6 +16,7 @@ public:
 
 private:
     void handleEvents();
+    void transitionToNextState(States state);
 
     bool isGameExitTriggered_;
     std::unique_ptr<GraphicsManager> graphicsManager_;

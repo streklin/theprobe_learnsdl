@@ -13,7 +13,7 @@ Sprite::Sprite(const std::string spriteSheetPath, SDL_Renderer* renderer) : Text
 
 void Sprite::render(SDL_Renderer* renderer) {
     SDL_Rect source = animations_[currentAnimation_].getCurrentFrame();
-    SDL_Rect target = {x_, y_, source.w, source.h};
+    SDL_Rect target = {x_, y_, source.w * xScale_, source.h * yScale_};
 
     SDL_RenderCopy( renderer, texture_, &source, &target );
 }

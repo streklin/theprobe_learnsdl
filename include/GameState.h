@@ -8,6 +8,7 @@
 
 enum States {
     TitleScreen,
+    ExitGame,
     MapGeneration,
     MainGamePlay,
     Loading,

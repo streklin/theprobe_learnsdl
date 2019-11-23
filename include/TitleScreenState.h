@@ -39,6 +39,8 @@ private:
     std::unique_ptr<Button> startGameBtn_;
     std::unique_ptr<Button> exitGameBtn_;
 
+    States transitionState;
+
 };
 
 #endif

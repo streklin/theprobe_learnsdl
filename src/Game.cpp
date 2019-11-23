@@ -23,6 +23,19 @@ void Game::run() {
     while(!isGameExitTriggered_) {
         handleEvents();
         gameState_->update(stopWatch_.getElaspedTicks());
+        
+        // check for transition
+        if (gameState_->isReadyToTransition()) {
+            auto nextState = gameState_->nextState();
+
+            if (nextState == States::ExitGame) {
+                isGameExitTriggered_ = true;
+                continue;
+            }
+
+            transitionToNextState(nextState);
+        }
+        
         graphicsManager_->render();
     }
 }
@@ -39,4 +52,11 @@ void Game::handleEvents() {
 
         gameState_->handleEvents(&e);
     }
+}
+
+void Game::transitionToNextState(States nextState) {
+    gameState_->exitState();
+    gameState_.reset();
+    gameState_ = gameStateFactory_.createState(nextState);
+    gameState_->enterState();
 }

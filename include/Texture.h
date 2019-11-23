@@ -23,6 +23,9 @@ public:
     int getX() { return x_; }
     int getY() { return y_; }
 
+    int getXScale() { return xScale_; }
+    int getYScale() { return yScale_; }
+
 protected:
     SDL_Texture* texture_;
 

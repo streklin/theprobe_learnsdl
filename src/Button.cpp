@@ -52,11 +52,15 @@ bool Button::isClicked() {
 
 bool Button::isMouseOver(const int mouseX, const int mouseY) {
    return   mouseX >= sprite_->getX() 
-            && mouseX <= sprite_->getX() + buttonWidth_ 
-            && mouseY <= sprite_->getY() + buttonHeight_ 
+            && mouseX <= sprite_->getX() + buttonWidth_ * sprite_->getXScale()
+            && mouseY <= sprite_->getY() + buttonHeight_  * sprite_->getYScale()
             && mouseY >= sprite_->getY();
 }
 
 void Button::setPosition(const int x, const int y) {
     sprite_->setPosition(x, y);
+}
+
+void Button::setScale(const int xScale, const int yScale) {
+    sprite_->setScale(xScale, yScale);
 }

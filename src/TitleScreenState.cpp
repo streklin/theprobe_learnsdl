@@ -23,16 +23,17 @@ void TitleScreenState::update(int elapsedTicks) {
     }
 
     if (exitGameBtn_->isClicked()) {
-        std::cout << "end the game \n";
+        isReadyToTransition_ = true;
+        transitionState = States::ExitGame;
     }
 } 
 
 States TitleScreenState::nextState() {
-    return States::TitleScreen;
+    return transitionState;
 }
 
 bool TitleScreenState::isReadyToTransition() {
-    return false;
+    return isReadyToTransition_;
 }
 
 void TitleScreenState::handleEvents(SDL_Event* e) {
@@ -59,10 +60,12 @@ void TitleScreenState::buildStaticTextureLayer() {
 
 void TitleScreenState::buildButtonLayer() {
     startGameBtn_ = std::make_unique<Button>("images/Button.png", graphics_->getRenderer(), 65, 103);
-    startGameBtn_->setPosition(840, 140);
+    startGameBtn_->setPosition(880, 140);
+    startGameBtn_->setScale(2.0, 1.0);
 
     exitGameBtn_ = std::make_unique<Button>("images/Button.png", graphics_->getRenderer(), 65, 103);
-    exitGameBtn_->setPosition(840, 220);
+    exitGameBtn_->setPosition(880, 220);
+    exitGameBtn_->setScale(2.0, 1.0);
 
     buttonLayer_ = std::make_unique<ButtonLayer>(graphics_->getRenderer());
     buttonLayer_->addButton(startGameBtn_.get());
