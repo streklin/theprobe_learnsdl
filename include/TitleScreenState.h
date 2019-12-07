@@ -10,6 +10,7 @@
 #include "ButtonLayer.h"
 #include "Button.h"
 #include "Texture.h"
+#include "FontTexture.h"
 
 const std::string titleScreenBackground = "images/TitleBG.png";
 const std::string hudTexture = "images/HUD.png";

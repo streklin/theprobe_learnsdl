@@ -1,6 +1,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 
 #include <iostream>
 #include <string>
@@ -22,7 +23,8 @@ GraphicsManager::~GraphicsManager() {
 void GraphicsManager::close() {
     SDL_DestroyWindow( window_ );
     SDL_DestroyRenderer(renderer_);
-
+    
+    TTF_Quit();
     IMG_Quit();
     SDL_Quit();
 }

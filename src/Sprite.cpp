@@ -30,3 +30,10 @@ void Sprite::setAnimation(const int animationIndex) {
     if (animationIndex < 0 || animationIndex >= animations_.size()) throw;
     currentAnimation_ = animationIndex;
 }
+
+void Sprite::renderAt(SDL_Renderer* renderer, const int x, const int y) {
+    SDL_Rect source = animations_[currentAnimation_].getCurrentFrame();
+    SDL_Rect target = {x, y, source.w * xScale_, source.h * yScale_};
+
+    SDL_RenderCopy( renderer, texture_, &source, &target );
+}

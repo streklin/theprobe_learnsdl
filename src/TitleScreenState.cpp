@@ -15,11 +15,17 @@ void TitleScreenState::enterState() {
     buildButtonLayer();
 }
 
-void TitleScreenState::exitState() {}
+void TitleScreenState::exitState() {
+    backgroundLayer_.reset();
+    staticTextureLayer_.reset();
+    buttonLayer_.reset();
+    graphics_->clearLayers();
+}
 
 void TitleScreenState::update(int elapsedTicks) {
     if (startGameBtn_->isClicked()) {
-        std::cout << "Start the game \n";
+        isReadyToTransition_ = true;
+        transitionState = States::MapGeneration;
     }
 
     if (exitGameBtn_->isClicked()) {
@@ -52,18 +58,18 @@ void TitleScreenState::buildStaticTextureLayer() {
     hudTexture_->loadTexture(hudTexture, graphics_->getRenderer());
     hudTexture_->setPosition(750, 50);
     hudTexture_->setScale(0.5, 1.0);
-    
+
     staticTextureLayer_->addTexture(hudTexture_.get());
     
     graphics_->addLayer(static_cast<GraphicsLayer*>(staticTextureLayer_.get()));
 } 
 
 void TitleScreenState::buildButtonLayer() {
-    startGameBtn_ = std::make_unique<Button>("images/Button.png", graphics_->getRenderer(), 65, 103);
+    startGameBtn_ = std::make_unique<Button>("images/StartGameBtn.png", graphics_->getRenderer(), 65, 103);
     startGameBtn_->setPosition(880, 140);
     startGameBtn_->setScale(2.0, 1.0);
 
-    exitGameBtn_ = std::make_unique<Button>("images/Button.png", graphics_->getRenderer(), 65, 103);
+    exitGameBtn_ = std::make_unique<Button>("images/ExitGameBtn.png", graphics_->getRenderer(), 65, 103);
     exitGameBtn_->setPosition(880, 220);
     exitGameBtn_->setScale(2.0, 1.0);
 

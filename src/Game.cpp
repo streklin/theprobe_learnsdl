@@ -14,7 +14,9 @@ Game::Game() {
     graphicsManager_->init();
     isGameExitTriggered_ = false;
 
-    gameStateFactory_ = GameStateFactory(graphicsManager_.get(), nullptr);
+    worldMap_ = std::make_unique<WorldMap>();
+
+    gameStateFactory_ = GameStateFactory(graphicsManager_.get(), nullptr, worldMap_.get());
     gameState_ = gameStateFactory_.createState(States::TitleScreen);
     gameState_->enterState();
 }

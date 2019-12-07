@@ -14,6 +14,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../cmake/FindSDL2.cmake"
   "../cmake/FindSDL2_image.cmake"
   "../cmake/FindSDL2_mixer.cmake"
+  "../cmake/FindSDL2_ttf.cmake"
   "/opt/cmake-3.16.0-rc1-Linux-x86_64/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/opt/cmake-3.16.0-rc1-Linux-x86_64/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
   "/opt/cmake-3.16.0-rc1-Linux-x86_64/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"

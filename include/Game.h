@@ -8,6 +8,7 @@
 #include "GraphicsManager.h"
 #include "GameState.h"
 #include "StopWatch.h"
+#include "WorldMap.h"
 
 class Game final {
 public:
@@ -20,8 +21,9 @@ private:
 
     bool isGameExitTriggered_;
     std::unique_ptr<GraphicsManager> graphicsManager_;
-
     std::unique_ptr<GameState> gameState_;
+    std::unique_ptr<WorldMap> worldMap_;
+
     GameStateFactory gameStateFactory_;
     StopWatch stopWatch_;
 };
