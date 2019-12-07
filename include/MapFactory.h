@@ -17,7 +17,7 @@ class MapTileEmitter final {
 public:
     MapTileEmitter();
     MapTileEmitter(const int x, const int y, const int power);
-    void emitTiles(WorldMap* worldMap, MapTile l1, MapTile l2, MapTile l3);
+    void emitTiles(WorldMap* worldMap, MapTile tile);
     void randomWalkToWater(WorldMap* worldMap);
 
     const int x();
@@ -26,8 +26,7 @@ public:
 
 private:
     std::pair<const int,const int> getNextMapLocation(WorldMap* worldMap, const int direction, const int wx, const int wy);
-    void setTileAtLocation(WorldMap* worldMap, const int wx, const int wy);
-
+    
     int x_;
     int y_;
     int power_;
@@ -60,6 +59,8 @@ private:
     void generateArcticBiome(WorldMap* worldMap_);
     void generateCities(WorldMap* worldMap_);
     void connectCities(WorldMap* worldMap_);
+
+    std::pair<const int, const int> sampleForTile(MapTile tile, WorldMap* worldMap);
 
     bool isAdjancentToType(const int x, const int y, const MapTile tile, WorldMap* worldMap_);
     

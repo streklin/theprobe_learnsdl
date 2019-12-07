@@ -5,13 +5,20 @@
 #include "MapFactory.h"
 #include "WorldMap.h"
 
-#define MINTILEEMITTERS 2
-#define MAXTILEEMITTERS 8
+#define MINTILEEMITTERS 16
+#define MAXTILEEMITTERS 32
 
 #define MINPOWER 16
 #define MAXPOWER 64
 
-#define MAPGENERATIONITERATIONS 1000
+#define MAXFORESTS 50
+#define MAXSAMPLES 1000
+#define FORESTPOWER 32
+
+#define MAXCITIES 20
+#define MINCITIES 5
+
+#define MAPGENERATIONITERATIONS 2500
 
 #define UP 0
 #define LEFT 1
@@ -26,7 +33,6 @@ MapTileEmitter::MapTileEmitter(const int x, const int y, const int power) {
     power_ = power;
 
     std::cout << "X: " << x << ", Y: " << y << "\n";
-
 }
 
 std::pair<const int,const int> MapTileEmitter::getNextMapLocation(WorldMap* worldMap, const int direction, const int wx, const int wy) {
@@ -73,22 +79,8 @@ std::pair<const int,const int> MapTileEmitter::getNextMapLocation(WorldMap* worl
     return std::pair(nextX, nextY);    
 }
 
-void MapTileEmitter::setTileAtLocation(WorldMap* worldMap, const int wx, const int wy) { 
-    auto tileAt = worldMap->getTileAt(wx, wy);
-    
-    switch(tileAt) {
-        case MapTile::mWater:
-            worldMap->setTileAt(wx, wy, MapTile::mGrass);
-            break;
-        case MapTile::mVolcano:
-            break;     
-        default:
-            worldMap->setTileAt(wx, wy, MapTile::mGrass);
-    }
 
-}
-
-void MapTileEmitter::emitTiles(WorldMap* world, MapTile l1, MapTile l2, MapTile l3) {
+void MapTileEmitter::emitTiles(WorldMap* world, MapTile tile) {
     std::random_device dev;
     std::mt19937 rng(dev());
     
@@ -102,7 +94,7 @@ void MapTileEmitter::emitTiles(WorldMap* world, MapTile l1, MapTile l2, MapTile 
     for (int i = 0; i < walkLength; i++) {
         const int direction = directionDistribution(rng);
         auto nextPosition = getNextMapLocation(world, direction, wx, wy);
-        setTileAtLocation(world, nextPosition.first, nextPosition.second);
+        world->setTileAt(nextPosition.first, nextPosition.second, tile);
 
         wx = nextPosition.first;
         wy = nextPosition.second;
@@ -111,8 +103,6 @@ void MapTileEmitter::emitTiles(WorldMap* world, MapTile l1, MapTile l2, MapTile 
 }
 
 void MapTileEmitter::randomWalkToWater(WorldMap* worldMap) {
-    // increase the height of the map tiles along the random walk
-    // to create hills and mountains
     std::random_device dev;
     std::mt19937 rng(dev());
 
@@ -185,7 +175,7 @@ void MapFactory::generateContinents(WorldMap* worldMap_) {
     
     for(int i = 0; i < MAPGENERATIONITERATIONS; i++) {
         const int index = emitterDistribution(rng);
-        tileEmitters_[index].emitTiles(worldMap_, MapTile::mGrass, MapTile::mHills, MapTile::mMountain);
+        tileEmitters_[index].emitTiles(worldMap_, MapTile::mGrass);
     }
 }
 
@@ -216,11 +206,59 @@ void MapFactory::generateShorelines(WorldMap* worldMap_) {
 
 void MapFactory::generateHills(WorldMap* worldMap_) {}
 
-void MapFactory::generateForests(WorldMap* worldMap_) {}
+std::pair<const int, const int> MapFactory::sampleForTile(MapTile tile, WorldMap* worldMap) {
+ 
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<int> widthDistribution = std::uniform_int_distribution<int>(0, MAP_WIDTH - 1);
+    std::uniform_int_distribution<int> heightDistribution = std::uniform_int_distribution<int>(0, MAP_HEIGHT - 1);
+
+    int sampleCount = 0;
+
+    while(sampleCount < MAXSAMPLES) {
+        sampleCount++;
+
+        const int x = widthDistribution(rng);       
+        const int y = heightDistribution(rng);
+
+        if (worldMap->getTileAt(x,y) == tile) return std::pair<const int, const int>(x, y);
+    }
+
+    return std::pair<const int, const int>(-1, -1);
+}
+
+void MapFactory::generateForests(WorldMap* worldMap_) {
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<int> forestCountDist(0, MAXFORESTS);
+
+    const int numberOfForests = forestCountDist(rng);
+
+    for (int i = 0; i < numberOfForests; i++) {
+        auto nextTile = sampleForTile(MapTile::mGrass, worldMap_);
+
+        if (nextTile.first == -1) continue;
+
+        auto emitter = MapTileEmitter(nextTile.first, nextTile.second, FORESTPOWER);
+        emitter.emitTiles(worldMap_, MapTile::mForest);
+    }
+}
 
 void MapFactory::generateArcticBiome(WorldMap* worldMap_) {}
 
-void MapFactory::generateCities(WorldMap* worldMap_) {}
+void MapFactory::generateCities(WorldMap* worldMap_) {
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<int> cityDist(MINCITIES, MAXCITIES);
+
+    const int numberOfCities = cityDist(rng);
+
+    for(int i = 0; i < numberOfCities; i++) {
+        auto nextTile = sampleForTile(MapTile::mGrass, worldMap_);
+        if (nextTile.first == -1) continue;
+        worldMap_->setTileAt(nextTile.first, nextTile.second, MapTile::mCity);
+    }
+}
 
 void MapFactory::connectCities(WorldMap* worldMap_) {}
 

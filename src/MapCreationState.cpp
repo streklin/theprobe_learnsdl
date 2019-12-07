@@ -11,8 +11,6 @@ MapCreationState::MapCreationState(GraphicsManager* graphics, AudioManager* audi
 
 void MapCreationState::enterState() {
     // create the background layer
-    buildBackgroundLayer();
-    buildSpriteLayer();
     buildButtonLayer();
     buildMapVisualizationLayer();
 
@@ -25,8 +23,6 @@ void MapCreationState::enterState() {
 void MapCreationState::exitState() {
     // clear out objects when exiting state.
     graphics_->clearLayers();
-    backgroundLayer_.reset();
-    spriteLayer_.reset();
     mapVisualizationLayer_.reset();
 }
 

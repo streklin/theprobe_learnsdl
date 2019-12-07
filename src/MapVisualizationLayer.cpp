@@ -9,13 +9,15 @@
 
 MapVisualizationLayer::MapVisualizationLayer(SDL_Renderer* renderer, const std::string mapTilesSpriteSheet) : GraphicsLayer(renderer) {
     mapTiles_ = std::make_unique<Sprite>(mapTilesSpriteSheet, renderer);
-    mapTiles_->setScale(2.0, 2.0);
+    mapTiles_->setScale(1.0, 1.0);
 
     addMapTile(gTilePosGrass);
     addMapTile(gTilePosWater);
     addMapTile(gTilePosSand);
     addMapTile(gTilePosMountain);
-    addMapTile(gTilePosTallMountain);    
+    addMapTile(gTilePosTallMountain);
+    addMapTile(gTilePosTrees);
+    addMapTile(gTilePosCity);
 }
 
 void MapVisualizationLayer::render() {
@@ -58,9 +60,15 @@ void MapVisualizationLayer::drawMapTile(const int tileX, const int tileY) {
         case MapTile::mVolcano:
             mapTiles_->setAnimation(gMapTile_tallMountain);
             break;
+        case MapTile::mForest:
+            mapTiles_->setAnimation(gMapTile_forest);
+            break;
+        case MapTile::mCity:
+            mapTiles_->setAnimation(gMapTile_city);
+            break;
         default:
             mapTiles_->setAnimation(gMapTile_sand);
     }
 
-    mapTiles_->renderAt(this->renderer_, 2*tileX * gMapTile_width, 2*tileY * gMapTile_height);
+    mapTiles_->renderAt(this->renderer_, tileX * gMapTile_width, tileY * gMapTile_height);
 }

@@ -1,8 +1,8 @@
 #ifndef WORLDMAP
 #define WORLDMAP
 
-#define MAP_WIDTH 75
-#define MAP_HEIGHT 55
+#define MAP_WIDTH 150
+#define MAP_HEIGHT 110
 
 #include <vector>
 #include <array>
@@ -20,7 +20,8 @@ enum class MapTile {
     mMountain,
     mMarsh,
     mHills,
-    mVolcano
+    mVolcano,
+    mCity
 };
 
 class WorldMap final {
