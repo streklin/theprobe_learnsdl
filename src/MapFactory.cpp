@@ -31,8 +31,6 @@ MapTileEmitter::MapTileEmitter(const int x, const int y, const int power) {
     x_ = x;
     y_ = y;
     power_ = power;
-
-    std::cout << "X: " << x << ", Y: " << y << "\n";
 }
 
 std::pair<const int,const int> MapTileEmitter::getNextMapLocation(WorldMap* worldMap, const int direction, const int wx, const int wy) {
@@ -44,8 +42,6 @@ std::pair<const int,const int> MapTileEmitter::getNextMapLocation(WorldMap* worl
     if (wx >= MAP_WIDTH || wy >= MAP_HEIGHT) {
         throw "Bad Position";
     }
-
-    std::cout << "Direction: " << direction << "\n";
 
     int nextX = 0;
     int nextY = 0;
@@ -150,7 +146,9 @@ MapTileEmitter MapTileEmitterFactory::getEmitter() {
 }
 
 
-MapFactory::MapFactory() {}
+MapFactory::MapFactory() {
+    isWorldReady_ = true;
+}
 
 
 void MapFactory::generateEmitters(WorldMap* worldMap_) {
@@ -246,23 +244,10 @@ void MapFactory::generateForests(WorldMap* worldMap_) {
 
 void MapFactory::generateArcticBiome(WorldMap* worldMap_) {}
 
-void MapFactory::generateCities(WorldMap* worldMap_) {
-    std::random_device dev;
-    std::mt19937 rng(dev());
-    std::uniform_int_distribution<int> cityDist(MINCITIES, MAXCITIES);
-
-    const int numberOfCities = cityDist(rng);
-
-    for(int i = 0; i < numberOfCities; i++) {
-        auto nextTile = sampleForTile(MapTile::mGrass, worldMap_);
-        if (nextTile.first == -1) continue;
-        worldMap_->setTileAt(nextTile.first, nextTile.second, MapTile::mCity);
-    }
-}
-
-void MapFactory::connectCities(WorldMap* worldMap_) {}
 
 void MapFactory::generateWorld(WorldMap* worldMap) {
+    isWorldReady_ = false;
+
     worldMap->clearMap();
 
     generateEmitters(worldMap);
@@ -273,14 +258,11 @@ void MapFactory::generateWorld(WorldMap* worldMap) {
     generateHills(worldMap);
     generateForests(worldMap);
     generateArcticBiome(worldMap);
-    generateCities(worldMap);
-    connectCities(worldMap);
 
-    std::lock_guard<std::mutex> myLock(mutex_);
     isWorldReady_ = true;
 }
 
-bool MapFactory::isCompleted() { 
+bool MapFactory::isReady() { 
     std::lock_guard<std::mutex> myLock(mutex_);
     return isWorldReady_;
 }

@@ -1,4 +1,5 @@
 #include <thread>
+#include <iostream>
 
 #include "MapFactory.h"
 #include "MapCreationState.h"
@@ -10,64 +11,83 @@ MapCreationState::MapCreationState(GraphicsManager* graphics, AudioManager* audi
 }
 
 void MapCreationState::enterState() {
-    // create the background layer
     buildButtonLayer();
     buildMapVisualizationLayer();
+    generateNewMap();
+}
 
-    // start the world generator thread
+void MapCreationState::generateNewMap() {
+    if (!mapFactory_.isReady()) return;
+
     worldGeneratorThread_ = std::thread([this]() {
         (static_cast<MapCreationState*>(this))->mapFactory_.generateWorld(worldMap_);
     });
 }
 
 void MapCreationState::exitState() {
-    // clear out objects when exiting state.
     graphics_->clearLayers();
+
     mapVisualizationLayer_.reset();
+    buttonLayer_.reset();
+    
+    worldGeneratorThread_.join();
 }
 
-void MapCreationState::update(int elapsedTicks) {}
+void MapCreationState::update(int elapsedTicks) {
+    if (regenerateWorldBtn_->isClicked()) {
+        worldGeneratorThread_.join();
+        generateNewMap();
+    }
 
-void MapCreationState::handleEvents(SDL_Event* e) {}
+    if (exitGameBtn_->isClicked()) {
+        isReadyToTransition_ = true;
+        transitionState = States::ExitGame;
+    }
+}
+
+void MapCreationState::handleEvents(SDL_Event* e) {
+    buttonLayer_->handleEvents(e);
+}
     
 States MapCreationState::nextState() {
-    return States::MapGeneration;
+    return transitionState;
 }
 
 bool MapCreationState::isReadyToTransition() {
-    return false;
+    return isReadyToTransition_;
 }
-
 
 void MapCreationState::buildBackgroundLayer() {
     backgroundLayer_ = std::make_unique<BackgroundLayer>(titleScreenBackground, graphics_->getRenderer());
     graphics_->addLayer(static_cast<GraphicsLayer*>(backgroundLayer_.get()));
 }
 
-
 void MapCreationState::buildButtonLayer() {
-    // stop button
 
-    // accept button
+    regenerateWorldBtn_ = std::make_unique<Button>("images/StartGameBtn.png", graphics_->getRenderer(), 65, 103);
+    regenerateWorldBtn_->setPosition(0, 900);
+    regenerateWorldBtn_->setScale(2.0, 1.0);
 
-    // regenerate button
+    exitGameBtn_ = std::make_unique<Button>("images/StartGameBtn.png", graphics_->getRenderer(), 65, 103);
+    exitGameBtn_->setPosition(220, 900);
+    exitGameBtn_->setScale(2.0, 1.0);
 
-    // CONSIDER: Common Button Factory?
+    enterWorldBtn_ = std::make_unique<Button>("images/StartGameBtn.png", graphics_->getRenderer(), 65, 103);
+    enterWorldBtn_->setPosition(460, 900);
+    enterWorldBtn_->setScale(2.0, 1.0);
+
+
+    buttonLayer_ = std::make_unique<ButtonLayer>(graphics_->getRenderer());
+    buttonLayer_->addButton(regenerateWorldBtn_.get());
+    buttonLayer_->addButton(exitGameBtn_.get());
+    buttonLayer_->addButton(enterWorldBtn_.get());
+
+    graphics_->addLayer(static_cast<GraphicsLayer*>(buttonLayer_.get()));
 }
 
-void MapCreationState::buildSpriteLayer() {
-    spriteLayer_ = std::make_unique<SpriteLayer>(graphics_->getRenderer());
-
-    // TO DO: Create loading Sprite
-    // CONSIDER: Common Sprite Factory?
-
-    graphics_->addLayer(static_cast<GraphicsLayer*>(spriteLayer_.get()));
-
-}
 
 void MapCreationState::buildMapVisualizationLayer() {
     mapVisualizationLayer_ = std::make_unique<MapVisualizationLayer>(graphics_->getRenderer(), gMapTiles);
-    //mapVisualizationLayer_->isHidden = true;
     mapVisualizationLayer_->setMap(worldMap_);
     graphics_->addLayer(static_cast<GraphicsLayer*>(mapVisualizationLayer_.get()));
 }

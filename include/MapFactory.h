@@ -46,7 +46,7 @@ class MapFactory final {
 public:
     MapFactory();
     void generateWorld(WorldMap* map);
-    bool isCompleted();
+    bool isReady();
 
 private:
 
@@ -57,8 +57,6 @@ private:
     void generateHills(WorldMap* worldMap_);
     void generateForests(WorldMap* worldMap_);
     void generateArcticBiome(WorldMap* worldMap_);
-    void generateCities(WorldMap* worldMap_);
-    void connectCities(WorldMap* worldMap_);
 
     std::pair<const int, const int> sampleForTile(MapTile tile, WorldMap* worldMap);
 

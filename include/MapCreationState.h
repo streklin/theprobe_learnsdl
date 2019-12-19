@@ -28,18 +28,23 @@ public:
 private:
     void buildBackgroundLayer();
     void buildButtonLayer();
-    void buildSpriteLayer();
     void buildMapVisualizationLayer();
+    void generateNewMap();
 
     std::unique_ptr<BackgroundLayer> backgroundLayer_;
-    std::unique_ptr<SpriteLayer> spriteLayer_;
     std::unique_ptr<MapVisualizationLayer> mapVisualizationLayer_;
     std::unique_ptr<ButtonLayer> buttonLayer_;
+
+    std::unique_ptr<Button> regenerateWorldBtn_;
+    std::unique_ptr<Button> exitGameBtn_;
+    std::unique_ptr<Button> enterWorldBtn_;
 
     std::thread worldGeneratorThread_;
 
     MapFactory mapFactory_;
     WorldMap* worldMap_;
+
+    States transitionState;
 };
 
 #endif
