@@ -38,6 +38,8 @@ public:
     void render() override;
 
     void setMap(WorldMap* map);
+    void setMapOffset(const int map_offset_x, const int map_offset_y);
+    void setZoomLevel(const float zoom_level);
 
 private:
     void addMapTile(const std::pair<const int, const int> position);
@@ -45,6 +47,10 @@ private:
 
     WorldMap* map_; //non owning data handle.
     std::unique_ptr<Sprite> mapTiles_;
+
+    int map_offset_x_;
+    int map_offset_y_;
+    float zoom_level_;
 };
 
 #endif

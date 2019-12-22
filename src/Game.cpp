@@ -16,9 +16,12 @@ Game::Game() {
 
     worldMap_ = std::make_unique<WorldMap>();
 
-    gameStateFactory_ = GameStateFactory(graphicsManager_.get(), nullptr, worldMap_.get());
+    gameStateFactory_ = GameStateFactory(graphicsManager_.get(), nullptr, worldMap_.get(), this);
     gameState_ = gameStateFactory_.createState(States::TitleScreen);
     gameState_->enterState();
+
+    map_view_ = MapView();
+    keyboard_manager_ = KeyboardManager();
 }
 
 void Game::run() {
@@ -42,6 +45,10 @@ void Game::run() {
     }
 }
 
+WorldMap* Game::getWorldMap() {
+    return worldMap_.get();
+}
+
 void Game::handleEvents() {
     SDL_Event e;
 
@@ -61,4 +68,20 @@ void Game::transitionToNextState(States nextState) {
     gameState_.reset();
     gameState_ = gameStateFactory_.createState(nextState);
     gameState_->enterState();
+}
+
+void Game::setPlayerResources(PlayerResources resources) {
+    resources_ = resources;
+}
+
+PlayerResources& Game::GetPlayerResources() {
+    return resources_;
+}
+
+MapView& Game::GetMapView() {
+    return map_view_;
+}
+
+KeyboardManager& Game::GetKeyboardManager() {
+    return keyboard_manager_;
 }

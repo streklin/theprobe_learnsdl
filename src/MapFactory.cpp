@@ -12,7 +12,6 @@
 #define MAXPOWER 64
 
 #define MAXFORESTS 50
-#define MAXSAMPLES 1000
 #define FORESTPOWER 32
 
 #define MAXCITIES 20
@@ -204,27 +203,6 @@ void MapFactory::generateShorelines(WorldMap* worldMap_) {
 
 void MapFactory::generateHills(WorldMap* worldMap_) {}
 
-std::pair<const int, const int> MapFactory::sampleForTile(MapTile tile, WorldMap* worldMap) {
- 
-    std::random_device dev;
-    std::mt19937 rng(dev());
-    std::uniform_int_distribution<int> widthDistribution = std::uniform_int_distribution<int>(0, MAP_WIDTH - 1);
-    std::uniform_int_distribution<int> heightDistribution = std::uniform_int_distribution<int>(0, MAP_HEIGHT - 1);
-
-    int sampleCount = 0;
-
-    while(sampleCount < MAXSAMPLES) {
-        sampleCount++;
-
-        const int x = widthDistribution(rng);       
-        const int y = heightDistribution(rng);
-
-        if (worldMap->getTileAt(x,y) == tile) return std::pair<const int, const int>(x, y);
-    }
-
-    return std::pair<const int, const int>(-1, -1);
-}
-
 void MapFactory::generateForests(WorldMap* worldMap_) {
     std::random_device dev;
     std::mt19937 rng(dev());
@@ -233,7 +211,7 @@ void MapFactory::generateForests(WorldMap* worldMap_) {
     const int numberOfForests = forestCountDist(rng);
 
     for (int i = 0; i < numberOfForests; i++) {
-        auto nextTile = sampleForTile(MapTile::mGrass, worldMap_);
+        auto nextTile = worldMap_->sampleForTile(MapTile::mGrass);
 
         if (nextTile.first == -1) continue;
 

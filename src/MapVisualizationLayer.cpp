@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <memory>
+#include <iostream>
 
 #include "WorldMap.h"
 #include "Sprite.h"
@@ -11,6 +12,10 @@ MapVisualizationLayer::MapVisualizationLayer(SDL_Renderer* renderer, const std::
     mapTiles_ = std::make_unique<Sprite>(mapTilesSpriteSheet, renderer);
     mapTiles_->setScale(1.0, 1.0);
 
+    map_offset_x_ = 0;
+    map_offset_y_ = 0;
+    zoom_level_ = 1.0f;
+
     addMapTile(gTilePosGrass);
     addMapTile(gTilePosWater);
     addMapTile(gTilePosSand);
@@ -18,6 +23,16 @@ MapVisualizationLayer::MapVisualizationLayer(SDL_Renderer* renderer, const std::
     addMapTile(gTilePosTallMountain);
     addMapTile(gTilePosTrees);
     addMapTile(gTilePosCity);
+}
+
+void MapVisualizationLayer::setMapOffset(const int map_offset_x, const int map_offset_y) {
+    map_offset_x_ = map_offset_x;
+    map_offset_y_ = map_offset_y;
+}
+
+void MapVisualizationLayer::setZoomLevel(const float zoom_level) {
+    zoom_level_ = zoom_level;
+    mapTiles_->setScale(zoom_level_, zoom_level_);
 }
 
 void MapVisualizationLayer::render() {
@@ -70,5 +85,7 @@ void MapVisualizationLayer::drawMapTile(const int tileX, const int tileY) {
             mapTiles_->setAnimation(gMapTile_sand);
     }
 
-    mapTiles_->renderAt(this->renderer_, tileX * gMapTile_width, tileY * gMapTile_height);
+    const int tile_x_position = (tileX * gMapTile_width * zoom_level_) + map_offset_x_;
+    const int tile_y_position = (tileY * gMapTile_height * zoom_level_) + map_offset_y_;
+    mapTiles_->renderAt(this->renderer_, tile_x_position, tile_y_position);
 }

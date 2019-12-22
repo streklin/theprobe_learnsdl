@@ -9,11 +9,21 @@
 #include "GameState.h"
 #include "StopWatch.h"
 #include "WorldMap.h"
+#include "PlayerResources.h"
+#include "MapView.h"
+#include "KeyboardManager.h"
 
 class Game final {
 public:
     Game();
     void run();
+
+    void setPlayerResources(PlayerResources resources);
+    WorldMap* getWorldMap();
+
+    PlayerResources& GetPlayerResources();
+    MapView& GetMapView();
+    KeyboardManager& GetKeyboardManager();
 
 private:
     void handleEvents();
@@ -26,6 +36,10 @@ private:
 
     GameStateFactory gameStateFactory_;
     StopWatch stopWatch_;
+
+    PlayerResources resources_;
+    MapView map_view_;
+    KeyboardManager keyboard_manager_;
 };
 
 #endif

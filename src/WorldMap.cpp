@@ -1,6 +1,7 @@
 #include <vector>
 #include <array>
 #include <iostream>
+#include <random>
 
 #include "WorldMap.h"
 
@@ -57,4 +58,25 @@ void WorldMap::clearMap() {
             map_[x][y] = MapTile::mWater;
         }
     }
+}
+
+std::pair<const int, const int> WorldMap::sampleForTile(MapTile tile) {
+ 
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<int> widthDistribution = std::uniform_int_distribution<int>(0, MAP_WIDTH - 1);
+    std::uniform_int_distribution<int> heightDistribution = std::uniform_int_distribution<int>(0, MAP_HEIGHT - 1);
+
+    int sampleCount = 0;
+
+    while(sampleCount < MAXSAMPLES) {
+        sampleCount++;
+
+        const int x = widthDistribution(rng);       
+        const int y = heightDistribution(rng);
+
+        if (this->getTileAt(x,y) == tile) return std::pair<const int, const int>(x, y);
+    }
+
+    return std::pair<const int, const int>(-1, -1);
 }

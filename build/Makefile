@@ -420,6 +420,60 @@ src/GraphicsManager.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/GraphicsManager.cpp.s
 .PHONY : src/GraphicsManager.cpp.s
 
+src/KeyboardManager.o: src/KeyboardManager.cpp.o
+
+.PHONY : src/KeyboardManager.o
+
+# target to build an object file
+src/KeyboardManager.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/KeyboardManager.cpp.o
+.PHONY : src/KeyboardManager.cpp.o
+
+src/KeyboardManager.i: src/KeyboardManager.cpp.i
+
+.PHONY : src/KeyboardManager.i
+
+# target to preprocess a source file
+src/KeyboardManager.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/KeyboardManager.cpp.i
+.PHONY : src/KeyboardManager.cpp.i
+
+src/KeyboardManager.s: src/KeyboardManager.cpp.s
+
+.PHONY : src/KeyboardManager.s
+
+# target to generate assembly for a file
+src/KeyboardManager.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/KeyboardManager.cpp.s
+.PHONY : src/KeyboardManager.cpp.s
+
+src/MainGameState.o: src/MainGameState.cpp.o
+
+.PHONY : src/MainGameState.o
+
+# target to build an object file
+src/MainGameState.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MainGameState.cpp.o
+.PHONY : src/MainGameState.cpp.o
+
+src/MainGameState.i: src/MainGameState.cpp.i
+
+.PHONY : src/MainGameState.i
+
+# target to preprocess a source file
+src/MainGameState.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MainGameState.cpp.i
+.PHONY : src/MainGameState.cpp.i
+
+src/MainGameState.s: src/MainGameState.cpp.s
+
+.PHONY : src/MainGameState.s
+
+# target to generate assembly for a file
+src/MainGameState.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MainGameState.cpp.s
+.PHONY : src/MainGameState.cpp.s
+
 src/MapCreationState.o: src/MapCreationState.cpp.o
 
 .PHONY : src/MapCreationState.o
@@ -474,6 +528,33 @@ src/MapFactory.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapFactory.cpp.s
 .PHONY : src/MapFactory.cpp.s
 
+src/MapView.o: src/MapView.cpp.o
+
+.PHONY : src/MapView.o
+
+# target to build an object file
+src/MapView.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapView.cpp.o
+.PHONY : src/MapView.cpp.o
+
+src/MapView.i: src/MapView.cpp.i
+
+.PHONY : src/MapView.i
+
+# target to preprocess a source file
+src/MapView.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapView.cpp.i
+.PHONY : src/MapView.cpp.i
+
+src/MapView.s: src/MapView.cpp.s
+
+.PHONY : src/MapView.s
+
+# target to generate assembly for a file
+src/MapView.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapView.cpp.s
+.PHONY : src/MapView.cpp.s
+
 src/MapVisualizationLayer.o: src/MapVisualizationLayer.cpp.o
 
 .PHONY : src/MapVisualizationLayer.o
@@ -500,6 +581,60 @@ src/MapVisualizationLayer.s: src/MapVisualizationLayer.cpp.s
 src/MapVisualizationLayer.cpp.s:
 	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/MapVisualizationLayer.cpp.s
 .PHONY : src/MapVisualizationLayer.cpp.s
+
+src/NewGameState.o: src/NewGameState.cpp.o
+
+.PHONY : src/NewGameState.o
+
+# target to build an object file
+src/NewGameState.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/NewGameState.cpp.o
+.PHONY : src/NewGameState.cpp.o
+
+src/NewGameState.i: src/NewGameState.cpp.i
+
+.PHONY : src/NewGameState.i
+
+# target to preprocess a source file
+src/NewGameState.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/NewGameState.cpp.i
+.PHONY : src/NewGameState.cpp.i
+
+src/NewGameState.s: src/NewGameState.cpp.s
+
+.PHONY : src/NewGameState.s
+
+# target to generate assembly for a file
+src/NewGameState.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/NewGameState.cpp.s
+.PHONY : src/NewGameState.cpp.s
+
+src/PlayerResources.o: src/PlayerResources.cpp.o
+
+.PHONY : src/PlayerResources.o
+
+# target to build an object file
+src/PlayerResources.cpp.o:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/PlayerResources.cpp.o
+.PHONY : src/PlayerResources.cpp.o
+
+src/PlayerResources.i: src/PlayerResources.cpp.i
+
+.PHONY : src/PlayerResources.i
+
+# target to preprocess a source file
+src/PlayerResources.cpp.i:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/PlayerResources.cpp.i
+.PHONY : src/PlayerResources.cpp.i
+
+src/PlayerResources.s: src/PlayerResources.cpp.s
+
+.PHONY : src/PlayerResources.s
+
+# target to generate assembly for a file
+src/PlayerResources.cpp.s:
+	$(MAKE) -f CMakeFiles/TheProbe.dir/build.make CMakeFiles/TheProbe.dir/src/PlayerResources.cpp.s
+.PHONY : src/PlayerResources.cpp.s
 
 src/Sprite.o: src/Sprite.cpp.o
 
@@ -759,15 +894,30 @@ help:
 	@echo "... src/GraphicsManager.o"
 	@echo "... src/GraphicsManager.i"
 	@echo "... src/GraphicsManager.s"
+	@echo "... src/KeyboardManager.o"
+	@echo "... src/KeyboardManager.i"
+	@echo "... src/KeyboardManager.s"
+	@echo "... src/MainGameState.o"
+	@echo "... src/MainGameState.i"
+	@echo "... src/MainGameState.s"
 	@echo "... src/MapCreationState.o"
 	@echo "... src/MapCreationState.i"
 	@echo "... src/MapCreationState.s"
 	@echo "... src/MapFactory.o"
 	@echo "... src/MapFactory.i"
 	@echo "... src/MapFactory.s"
+	@echo "... src/MapView.o"
+	@echo "... src/MapView.i"
+	@echo "... src/MapView.s"
 	@echo "... src/MapVisualizationLayer.o"
 	@echo "... src/MapVisualizationLayer.i"
 	@echo "... src/MapVisualizationLayer.s"
+	@echo "... src/NewGameState.o"
+	@echo "... src/NewGameState.i"
+	@echo "... src/NewGameState.s"
+	@echo "... src/PlayerResources.o"
+	@echo "... src/PlayerResources.i"
+	@echo "... src/PlayerResources.s"
 	@echo "... src/Sprite.o"
 	@echo "... src/Sprite.i"
 	@echo "... src/Sprite.s"

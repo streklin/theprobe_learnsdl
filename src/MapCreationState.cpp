@@ -43,6 +43,11 @@ void MapCreationState::update(int elapsedTicks) {
         isReadyToTransition_ = true;
         transitionState = States::ExitGame;
     }
+
+    if (enterWorldBtn_->isClicked()) {
+        isReadyToTransition_ = true;
+        transitionState = States::NewGame;
+    }
 }
 
 void MapCreationState::handleEvents(SDL_Event* e) {
@@ -65,15 +70,15 @@ void MapCreationState::buildBackgroundLayer() {
 void MapCreationState::buildButtonLayer() {
 
     regenerateWorldBtn_ = std::make_unique<Button>("images/StartGameBtn.png", graphics_->getRenderer(), 65, 103);
-    regenerateWorldBtn_->setPosition(0, 900);
+    regenerateWorldBtn_->setPosition(0, 890);
     regenerateWorldBtn_->setScale(2.0, 1.0);
 
     exitGameBtn_ = std::make_unique<Button>("images/StartGameBtn.png", graphics_->getRenderer(), 65, 103);
-    exitGameBtn_->setPosition(220, 900);
+    exitGameBtn_->setPosition(220, 890);
     exitGameBtn_->setScale(2.0, 1.0);
 
     enterWorldBtn_ = std::make_unique<Button>("images/StartGameBtn.png", graphics_->getRenderer(), 65, 103);
-    enterWorldBtn_->setPosition(460, 900);
+    enterWorldBtn_->setPosition(460, 890);
     enterWorldBtn_->setScale(2.0, 1.0);
 
 

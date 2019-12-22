@@ -4,6 +4,8 @@
 #define MAP_WIDTH 150
 #define MAP_HEIGHT 110
 
+#define MAXSAMPLES 1000
+
 #include <vector>
 #include <array>
 
@@ -34,6 +36,8 @@ public:
     
     void outputMapToConsole();
     void clearMap();
+
+    std::pair<const int, const int> sampleForTile(MapTile tile);
 
 private:
     void outputTileToConsole(MapTile tile);

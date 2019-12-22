@@ -10,6 +10,7 @@ enum States {
     TitleScreen,
     ExitGame,
     MapGeneration,
+    NewGame,
     MainGamePlay,
     Loading,
     Crafting,

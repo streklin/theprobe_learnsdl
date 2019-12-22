@@ -11,11 +11,10 @@
 #include "Button.h"
 #include "Texture.h"
 #include "FontTexture.h"
+#include "SharedConstants.h"
 
-const std::string titleScreenBackground = "images/TitleBG.png";
-const std::string hudTexture = "images/HUD.png";
 
-class TitleScreenState : public GameState {
+class TitleScreenState final : public GameState {
 public:
     TitleScreenState(GraphicsManager* graphics, AudioManager* audio);
 
