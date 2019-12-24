@@ -783,6 +783,7 @@ CMakeFiles/TheProbe.dir/src/MapFactory.cpp.o: ../include/WorldMap.h
 CMakeFiles/TheProbe.dir/src/MapFactory.cpp.o: ../src/MapFactory.cpp
 
 CMakeFiles/TheProbe.dir/src/MapView.cpp.o: ../include/MapView.h
+CMakeFiles/TheProbe.dir/src/MapView.cpp.o: ../include/SharedConstants.h
 CMakeFiles/TheProbe.dir/src/MapView.cpp.o: ../src/MapView.cpp
 
 CMakeFiles/TheProbe.dir/src/MapVisualizationLayer.cpp.o: ../include/Animation.h
